@@ -1,2 +1,2 @@
 # M3-Music
-Ecouter, regarder et télécharger des musiques
+M3'Music est là pour vous faciliter à écouter regarder et télécharger des musiques en illimité et gratuitement.

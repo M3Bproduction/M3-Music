@@ -76,21 +76,16 @@ body.dark {
 /* Playlists */
 .playlists {
   display: flex;
-  flex-direction: row;
-  overflow-x: auto;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
   margin-top: 2rem;
-  padding: 10px;
-  padding-left: 220px;
-  padding-right: 220px;
 }
 
 .playlist-card {
   background-color: var(--card-bg-light);
   border-radius: 10px;
   width: 220px;
-  flex-shrink: 0;
   text-align: center;
   padding: 1rem;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;

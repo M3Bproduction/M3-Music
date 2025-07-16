@@ -81,6 +81,7 @@ body.dark {
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  padding: 10px;
 }
 
 .playlist-card {

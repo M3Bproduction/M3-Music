@@ -1,4 +1,7 @@
-const CACHE_NAME = "m3-music-cache-v1";
+const CACHE_VERSION = "v2";
+const CACHE_NAME = `m3-music-cache-${CACHE_VERSION}`;
+const OFFLINE_URL = "/offline.html";
+
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
@@ -13,23 +16,13 @@ const ASSETS_TO_CACHE = [
   "/classique.jpg",
   "/rap.png",
   "/NAS BLK/nasblk.html",
-  "/NAS BLK/nasblk.jpg",
-  "/NAS BLK/tsola.jpg",
   "/SLK/slk.html",
-  "/SLK/slk.jpg",
-  "/SLK/ndezeanla.html",
-  "/SLK/NDEZE ANLA/1. SLK - ZE-ANLA.mp3"
-  "/SLK/NDEZE ANLA/ndezeanla.jpg",
-  "/SLK/NGAM NENO/ngamneno.jpg",
-  "/Victorious Awax/awax.html",
-  "/Victorious Awax/awax.jpg",
-  "/Victorious Awax/NI YENSHI/niyenshi.jpg",
-  "/Victorious Awax/ROHO/roho.jpg",
-  "/Victorious Awax/TafaUti/tafauti.jpg"
+  "/Victorious Awax/awax.html"
 ];
 
-// Installation : mise en cache initiale
+// Installation : pré-cache
 self.addEventListener("install", event => {
+  console.log("[SW] Install - version:", CACHE_NAME);
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(ASSETS_TO_CACHE);
@@ -38,29 +31,31 @@ self.addEventListener("install", event => {
   self.skipWaiting();
 });
 
-// Activation : suppression des anciens caches
+// Activation : nettoyage des anciens caches
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
+    caches.keys().then(keys => {
+      return Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
+            console.log("[SW] Delete old cache:", key);
             return caches.delete(key);
           }
         })
-      )
-    )
+      );
+    })
   );
   self.clients.claim();
 });
 
-// Gestion des requêtes : réseau d'abord, puis cache, puis offline.html pour HTML
+// Requête (fetch)
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
     fetch(event.request)
       .then(response => {
+        // Mettre à jour le cache en arrière-plan
         const responseClone = response.clone();
         caches.open(CACHE_NAME).then(cache => {
           cache.put(event.request, responseClone);
@@ -68,10 +63,16 @@ self.addEventListener("fetch", event => {
         return response;
       })
       .catch(() => {
+        // Requête échouée : utiliser le cache
         return caches.match(event.request).then(cached => {
           if (cached) return cached;
-          if (event.request.mode === 'navigate') {
-            return caches.match("/offline.html");
+
+          // Pour les pages HTML : renvoyer la page hors ligne
+          if (
+            event.request.mode === "navigate" ||
+            event.request.headers.get("accept").includes("text/html")
+          ) {
+            return caches.match(OFFLINE_URL);
           }
         });
       })

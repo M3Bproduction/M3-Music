@@ -17,6 +17,8 @@ const ASSETS_TO_CACHE = [
   "/rap.png",
   "/NAS BLK/nasblk.html",
   "/SLK/slk.html",
+  "/Djoudja & Rimka La Pute/djoudjarimka.html",
+  "/COMOSTYLE/comostyle.html",
   "/Victorious Awax/awax.html"
 ];
 

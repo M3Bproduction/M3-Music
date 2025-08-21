@@ -87,51 +87,39 @@
 
   <script>
     const playlist = [
+      //A
       { title: "Amane", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/11. Victorious Awax - Amane.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" },
-      { title: "Baki 2", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/3) Sahel _Baki 2_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Baki feat Bzr", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/2) Sahel & Bzr _Baki 1_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Baki Vanu", artist: "Victorious Awax", album: "MSHINDA", src: "Victorious Awax/MSHINDA/8. Victorious Awax - Baki Vanu.mp3", cover: "Victorious Awax/MSHINDA/mshinda.jpg" },
-      { title: "Baki We Nami", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/9. Djoudja & Rimka La Pute - Baki We Nami.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" },
-      { title: "Baye-baye", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/10) Sahel _Baye-baye_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "C La Vie", artist: "Killamen", album: "Panga", src: "Killamen/Panga/10. Killamen - C La Vie.mp3", cover: "Killamen/Panga/panga.jpg" },
-      { title: "Chtabakra", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/5. COMOSTYLE - Chtabakra.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" },
-      { title: "Djana Dje Lewo feat @miineBeatz", artist: "Killamen", album: "Panga", src: "Killamen/Panga/5. Killamen - Djana Dje Lewo feat @miineBeatz.mp3", cover: "Killamen/Panga/panga.jpg" },
-      { title: "Dji Rihize feat Achy", artist: "Killamen", album: "Panga", src: "Killamen/Panga/15. Killamen - Dji Rihize feat Achy.mp3", cover: "Killamen/Panga/panga.jpg" },
-      { title: "DJITAMKE", artist: "SLK", album: "Single", src: "SLK/SLK - DJITAMKE.mp3", cover: "SLK/djitamke.jpg" },
+      //B
+      { title: "Baki 2", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/3) Sahel _Baki 2_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Baki feat Bzr", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/2) Sahel & Bzr _Baki 1_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Baki Vanu", artist: "Victorious Awax", album: "MSHINDA", src: "Victorious Awax/MSHINDA/8. Victorious Awax - Baki Vanu.mp3", cover: "Victorious Awax/MSHINDA/mshinda.jpg" }, { title: "Baki We Nami", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/9. Djoudja & Rimka La Pute - Baki We Nami.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" }, { title: "Baye-baye", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/10) Sahel _Baye-baye_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
+      //C
+      { title: "C La Vie", artist: "Killamen", album: "Panga", src: "Killamen/Panga/10. Killamen - C La Vie.mp3", cover: "Killamen/Panga/panga.jpg" }, { title: "Chtabakra", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/5. COMOSTYLE - Chtabakra.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" },
+      //D
+      { title: "Djana Dje Lewo feat @miineBeatz", artist: "Killamen", album: "Panga", src: "Killamen/Panga/5. Killamen - Djana Dje Lewo feat @miineBeatz.mp3", cover: "Killamen/Panga/panga.jpg" }, { title: "Dji Rihize feat Achy", artist: "Killamen", album: "Panga", src: "Killamen/Panga/15. Killamen - Dji Rihize feat Achy.mp3", cover: "Killamen/Panga/panga.jpg" }, { title: "DJITAMKE", artist: "SLK", album: "Single", src: "SLK/SLK - DJITAMKE.mp3", cover: "SLK/djitamke.jpg" },
+      //E
       { title: "Ex Waho", artist: "Victorious Awax", album: "MSHINDA", src: "Victorious Awax/MSHINDA/7. Victorious Awax - Ex Waho.mp3", cover: "Victorious Awax/MSHINDA/mshinda.jpg" },
-      { title: "Fayna feat L-Kego", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/6) Sahel & L-Kego _Fayna_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Fitina", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/8) Sahel _Fitina_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Foulera feat LDR Gang", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/5) Sahel & LDR Gang _Foulera_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
+      //F
+      { title: "Fayna feat L-Kego", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/6) Sahel & L-Kego _Fayna_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Fitina", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/8) Sahel _Fitina_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Foulera feat LDR Gang", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/5) Sahel & LDR Gang _Foulera_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
+      //G
       { title: "Gala Gala feat Queen Z x Zax Boy", artist: "Killamen", album: "Panga", src: "Killamen/Panga/8. Killamen - Gala Gala feat Queen Z x Zax Boy.mp3", cover: "Killamen/Panga/panga.jpg" },
-      { title: "Hani Wuwa", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/5. Victorious Awax - Hani Wuwa.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "HAYATI", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/10. HAYATI.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
-      { title: "Maria", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/9) Sahel _Maria_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Minawe", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/4. Victorious Awax - Minawe.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" },
-      { title: "Moina Amina", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/6. Djoudja & Rimka La Pute - Moina Amina.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" },
-      { title: "Moina Hadidja", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/4) Sahel _Moina Hadidja_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
-      { title: "Mwema", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/4. Djoudja & Rimka La Pute - Mwema.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" },
-      { title: "Mwendje feat Hawmi", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/6. Victorious Awax - Mwendje feat Hawmi.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "Nambiye", artist: "Victorious Awax", album: "ROHO", src: "Victorious Awax/ROHO/3. Victorious Awax - Nambiye.mp3", cover: "Victorious Awax/ROHO/roho.jpg" },
-      { title: "Nayi Nayi", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/7. COMOSTYLE - Nayi Nayi.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" },
-      { title: "NAZI KOMBOWA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/5. SLK - NAZI KOMBOWA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
-      { title: "Ndapvi", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/5. Victorious Awax - Ndapvi.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" },
-      { title: "Ngolilo", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/7. Djoudja & Rimka La Pute - Ngolilo.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" },
-      { title: "Nipare", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/4. Victorious Awax - Nipare.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "NUMBER feat ZAX BOY", artist: "AYDII LAMANY", album: "YE SABIKI YAHANGU", src: "AYDII LAMANY/YE SABIKI YAHANGU/5. AYDII LAMANY - NUMBER feat ZAX BOY.mp3", cover: "AYDII LAMANY/YE SABIKI YAHANGU/sabiki.jpg" },
+      //H
+      { title: "Hani Wuwa", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/5. Victorious Awax - Hani Wuwa.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" }, { title: "HAYATI", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/10. HAYATI.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
+      //M
+      { title: "Maria", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/9) Sahel _Maria_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Minawe", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/4. Victorious Awax - Minawe.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" }, { title: "Moina Amina", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/6. Djoudja & Rimka La Pute - Moina Amina.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" }, { title: "Moina Hadidja", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/4) Sahel _Moina Hadidja_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" }, { title: "Mwema", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/4. Djoudja & Rimka La Pute - Mwema.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" }, { title: "Mwendje feat Hawmi", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/6. Victorious Awax - Mwendje feat Hawmi.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
+      //N
+      { title: "Nambiye", artist: "Victorious Awax", album: "ROHO", src: "Victorious Awax/ROHO/3. Victorious Awax - Nambiye.mp3", cover: "Victorious Awax/ROHO/roho.jpg" }, { title: "Nayi Nayi", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/7. COMOSTYLE - Nayi Nayi.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" }, { title: "NAZI KOMBOWA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/5. SLK - NAZI KOMBOWA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" }, { title: "Ndapvi", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/5. Victorious Awax - Ndapvi.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" }, { title: "Ngolilo", artist: "Djoudja & Rimka La Pute", album: "MGALA", src: "Djoudja & Rimka La Pute/MGALA/7. Djoudja & Rimka La Pute - Ngolilo.mp3", cover: "Djoudja & Rimka La Pute/MGALA/mgala.jpg" }, { title: "Nipare", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/4. Victorious Awax - Nipare.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" }, { title: "NUMBER feat ZAX BOY", artist: "AYDII LAMANY", album: "YE SABIKI YAHANGU", src: "AYDII LAMANY/YE SABIKI YAHANGU/5. AYDII LAMANY - NUMBER feat ZAX BOY.mp3", cover: "AYDII LAMANY/YE SABIKI YAHANGU/sabiki.jpg" },
+      //P
       { title: "Pvoitsinawe feat Bzr", artist: "Sahel", album: "Nga Mbaki", src: "Sahel/Nga Mbaki/7) Sahel & Bzr _Pvoitsinawe_.mp3", cover: "Sahel/Nga Mbaki/ngambaki.png" },
+      //R
       { title: "Roho", artist: "Victorious Awax", album: "ROHO", src: "Victorious Awax/ROHO/1. Victorious Awax - Roho.mp3", cover: "Victorious Awax/ROHO/roho.jpg" },
-      { title: "Truru", artist: "Victorious Awax", album: "MSHINDA", src: "Victorious Awax/MSHINDA/9. Victorious Awax - Truru.mp3", cover: "Victorious Awax/MSHINDA/mshinda.jpg" },
-      { title: "TSI...", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/6. SLK - TSI....mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
-      { title: "Tsi Haba feat Lemir", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/9. Victorious Awax - Tsi Haba feat Lemir.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "Tsidjwandza Yike", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/7. Victorious Awax - Tsidjwandza Yike.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" },
-      { title: "TSO NEPVA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/11. SLK - TSO NEPVA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
-      { title: "TSOLA", artist: "NAS BLK x DJOUDJA", album: "", src: "NAS BLK/NAS BLK x DJOUDJA - TSOLA.mp3", cover: "NAS BLK/tsola.jpg" },
-      { title: "Tsoni Baliya", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/8. COMOSTYLE - Tsoni Baliya.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" },
+      //T
+      { title: "Truru", artist: "Victorious Awax", album: "MSHINDA", src: "Victorious Awax/MSHINDA/9. Victorious Awax - Truru.mp3", cover: "Victorious Awax/MSHINDA/mshinda.jpg" }, { title: "TSI...", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/6. SLK - TSI....mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" }, { title: "Tsi Haba feat Lemir", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/9. Victorious Awax - Tsi Haba feat Lemir.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" }, { title: "Tsidjwandza Yike", artist: "Victorious Awax", album: "NI YENSHI", src: "Victorious Awax/NI YENSHI/7. Victorious Awax - Tsidjwandza Yike.mp3", cover: "Victorious Awax/NI YENSHI/niyenshi.jpg" }, { title: "TSO NEPVA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/11. SLK - TSO NEPVA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" }, { title: "TSOLA", artist: "NAS BLK x DJOUDJA", album: "", src: "NAS BLK/NAS BLK x DJOUDJA - TSOLA.mp3", cover: "NAS BLK/tsola.jpg" }, { title: "Tsoni Baliya", artist: "COMOSTYLE", album: "Bumbwa", src: "COMOSTYLE/Bumbwa/8. COMOSTYLE - Tsoni Baliya.mp3", cover: "COMOSTYLE/Bumbwa/bumbwa.jpg" },
+      //V
       { title: "VAYA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/7. SLK - VAYA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
-      { title: "Wa Zamani feat Lil Simba", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/8. Victorious Awax - Wa Zamani feat Lil Simba.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "Wona", artist: "Victorious Awax", album: "ROHO", src: "Victorious Awax/ROHO/2. Victorious Awax - Wona.mp3", cover: "Victorious Awax/ROHO/roho.jpg" },
-      { title: "Yeka Tsi Ndami Ndo feat Criminal Team", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/7. Victorious Awax - Yeka Tsi Ndami Ndo feat Criminal Team.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" },
-      { title: "YOOWA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/8. SLK - YOOWA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
+      //W
+      { title: "Wa Zamani feat Lil Simba", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/8. Victorious Awax - Wa Zamani feat Lil Simba.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" }, { title: "Wona", artist: "Victorious Awax", album: "ROHO", src: "Victorious Awax/ROHO/2. Victorious Awax - Wona.mp3", cover: "Victorious Awax/ROHO/roho.jpg" },
+      //Y
+      { title: "Yeka Tsi Ndami Ndo feat Criminal Team", artist: "Victorious Awax", album: "TafaUti", src: "Victorious Awax/TafaUti/7. Victorious Awax - Yeka Tsi Ndami Ndo feat Criminal Team.mp3", cover: "Victorious Awax/TafaUti/tafauti.jpg" }, { title: "YOOWA", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/8. SLK - YOOWA.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" },
+      //Z
       { title: "ZI MWEPVE", artist: "SLK", album: "NGAM NENO", src: "SLK/NGAM NENO/9. SLK - ZI MWEPVE.mp3", cover: "SLK/NGAM NENO/ngamneno.jpg" }
     ];
 

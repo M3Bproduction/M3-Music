@@ -186,11 +186,17 @@
       }
     });
 
-    // Fonction pour lire une chanson (à adapter selon votre lecteur)
+    // Fonction pour lire une chanson
     function playSong(src) {
-      alert('Lecture: ' + src);
-      // Implémenter selon votre lecteur existant
+      // Trouver la chanson dans les favoris ou l'historique
+      const allSongs = [...favorites, ...history];
+      const song = allSongs.find(s => s.src === src);
+      if (song) {
+        window.playTrack(song, allSongs, allSongs.indexOf(song));
+        document.getElementById('global-player').classList.add('active');
+      }
     }
   </script>
+  <script src="global-player.js" defer></script>
 </body>
 </html>

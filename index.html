@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="music.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="db.js"></script>
+  <script src="global-player.js" defer></script>
 </head>
 <body>
   <!-- En-tête desktop -->
@@ -171,6 +172,72 @@
         }
       });
     });
+  </script>
+
+  <!-- Lecteur global -->
+  <div id="global-player" class="global-player">
+    <div class="global-player-content">
+      <img id="global-cover" src="rap.png" alt="Pochette">
+      <div class="global-track-info">
+        <div id="global-track-title" class="global-track-title">Aucun titre</div>
+        <div id="global-track-artist" class="global-track-artist">-</div>
+      </div>
+      <div class="global-controls">
+        <button id="global-prev" class="global-btn" title="Précédent"><i class="fas fa-backward"></i></button>
+        <button id="global-play-btn" class="global-btn global-play" title="Lecture/Pause"><i class="fas fa-play"></i></button>
+        <button id="global-next" class="global-btn" title="Suivant"><i class="fas fa-forward"></i></button>
+        <button id="global-mode" class="global-btn" title="Mode"><i class="fas fa-music"></i></button>
+      </div>
+      <div class="global-progress-container">
+        <span id="global-current-time" class="global-time">0:00</span>
+        <input type="range" id="global-progress" class="global-progress-bar" min="0" max="100" value="0">
+        <span id="global-duration" class="global-time">0:00</span>
+      </div>
+      <button id="global-close" class="global-btn global-close" title="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <style>
+  .global-player { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-top: 2px solid #e91e63; padding: 10px 20px; z-index: 10000; transform: translateY(100%); transition: transform 0.3s ease; box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5); }
+  .global-player.active { transform: translateY(0); }
+  .global-player-content { display: flex; align-items: center; gap: 15px; max-width: 1200px; margin: 0 auto; }
+  .global-player-content img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+  .global-track-info { flex: 1; min-width: 150px; }
+  .global-track-title { color: white; font-weight: bold; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .global-track-artist { color: #888; font-size: 12px; }
+  .global-controls { display: flex; gap: 10px; align-items: center; }
+  .global-btn { background: none; border: none; color: white; cursor: pointer; font-size: 18px; padding: 8px; border-radius: 50%; transition: all 0.2s; }
+  .global-btn:hover { background: rgba(255, 255, 255, 0.1); transform: scale(1.1); }
+  .global-play { background: #e91e63; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; }
+  .global-play:hover { background: #d81b60; }
+  .global-progress-container { flex: 2; display: flex; align-items: center; gap: 10px; }
+  .global-progress-bar { flex: 1; height: 5px; -webkit-appearance: none; background: #333; border-radius: 5px; cursor: pointer; }
+  .global-progress-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; background: #e91e63; border-radius: 50%; cursor: pointer; }
+  .global-time { color: #888; font-size: 12px; min-width: 40px; }
+  .global-close { font-size: 14px; opacity: 0.7; }
+  .global-close:hover { opacity: 1; }
+  @media (max-width: 768px) {
+    .global-player-content { flex-wrap: wrap; }
+    .global-progress-container { order: 10; flex: 100%; margin-top: 10px; }
+    .global-track-info { flex: 2; }
+  }
+  </style>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const player = document.getElementById('global-player');
+    if (!player) return;
+    document.getElementById('global-play-btn').addEventListener('click', () => window.toggleGlobalPlay());
+    document.getElementById('global-prev').addEventListener('click', () => window.prevTrack());
+    document.getElementById('global-next').addEventListener('click', () => window.nextTrack());
+    document.getElementById('global-mode').addEventListener('click', () => {
+      const modes = ['normal', 'shuffle', 'loop'];
+      const current = window.globalPlayer.mode;
+      window.setGlobalMode(modes[(modes.indexOf(current) + 1) % modes.length]);
+    });
+    document.getElementById('global-close').addEventListener('click', () => player.classList.remove('active'));
+    document.getElementById('global-progress').addEventListener('input', (e) => window.globalPlayer.seek(e.target.value));
+  });
   </script>
 </body>
 </html>

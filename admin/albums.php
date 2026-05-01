@@ -16,9 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titre = sanitize_input($_POST['titre'] ?? '');
         $description = sanitize_input($_POST['description'] ?? '');
         $date_sortie = $_POST['date_sortie'] ?? null;
+        $image = sanitize_input($_POST['image'] ?? '');
         
         if ($artiste_id && $titre) {
-            if (add_album($artiste_id, $titre, $description, $date_sortie)) {
+            if (add_album($artiste_id, $titre, $description, $date_sortie, $image)) {
                 $message = 'Album ajouté avec succès!';
                 $action = 'list';
             } else {
@@ -32,9 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titre = sanitize_input($_POST['titre'] ?? '');
         $description = sanitize_input($_POST['description'] ?? '');
         $date_sortie = $_POST['date_sortie'] ?? null;
+        $image = sanitize_input($_POST['image'] ?? '');
         
         if ($titre) {
-            if (update_album($id, $titre, $description, $date_sortie)) {
+            if (update_album($id, $titre, $description, $date_sortie, $image)) {
                 $message = 'Album modifié avec succès!';
                 $action = 'list';
             } else {

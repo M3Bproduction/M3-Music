@@ -1,0 +1,35 @@
+# Protéger le dossier admin et les fichiers sensibles
+
+# Redirection HTTP vers HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Protéger les fichiers sensibles
+<FilesMatch "\.(env|json)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Désactiver la liste des répertoires
+Options -Indexes
+
+# Ajouter des en-têtes de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Limiter la taille des fichiers uploadés
+php_value upload_max_filesize 5M
+php_value post_max_size 5M
+
+# Ajouter une protection contre les attaques par force brute au dossier admin
+<Directory /public_html/admin>
+    # Activation de mod_ratelimit (si disponible)
+    # Limitez à 10 requêtes par seconde
+    SetEnvIf Request_URI "^/admin/login.php" limited_req
+    # Cette règle peut être configurée via cPanel
+</Directory>

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_NAME = `m3-music-cache-${CACHE_VERSION}`;
 const OFFLINE_URL = "/offline.html";
 
@@ -9,43 +9,18 @@ const ASSETS_TO_CACHE = [
   "/manifest.json",
   "/favicon.ico",
   "/icons/icon-192x192.png",
+  //"/icons/icon-512x512.png",
   "/music.css",
-  "/lecteur.css",
-  "/db.js",
-  "/global-player.js",
-  "/player-integrator.js",
-  "/ma-musique.html",
-  "/music-db-integrator.js",
   "/albums.html",
   "/artistes.html",
-  "/clips.html",
-  "/rap.html",
-  "/toietmoi.html",
   "/classique.jpg",
   "/rap.png",
   "/NAS BLK/nasblk.html",
   "/NAS BLK/tsola.html",
-  "/NAS BLK/fataha.html",
-  "/NAS BLK/roho.html",
   "/SLK/slk.html",
-  "/SLK/ngamneno.html",
-  "/SLK/ndezeanla.html",
-  "/SLK/djitamke.html",
   "/Djoudja & Rimka La Pute/djoudjarimka.html",
-  "/Djoudja & Rimka La Pute/mgala.html",
   "/COMOSTYLE/comostyle.html",
-  "/COMOSTYLE/bumbwa.html",
-  "/Victorious Awax/awax.html",
-  "/Victorious Awax/tafauti.html",
-  "/Victorious Awax/roho.html",
-  "/Victorious Awax/niyenshi.html",
-  "/Victorious Awax/mshinda.html",
-  "/AYDII LAMANY/aydii.html",
-  "/AYDII LAMANY/sabiki.html",
-  "/Sahel/sahel.html",
-  "/Sahel/ngambaki.html",
-  "/Killamen/killamen.html",
-  "/Killamen/panga.html"
+  "/Victorious Awax/awax.html"
 ];
 
 // Installation : pré-cache

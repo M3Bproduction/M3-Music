@@ -12,12 +12,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TSOLA - M3'Music</title>
+  <link rel="icon" href="tsola.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="../music.css" />
   <link rel="stylesheet" type="text/css" href="../lecteur.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="../db.js" defer></script>
-  <script src="../global-player.js" defer></script>
-  <script src="../player-integrator.js" defer></script>
 </head>
 <body class="dark">
   <header class="music-header">
@@ -56,7 +54,6 @@
         <button id="play"><i class="fas fa-play"></i></button>
         <button id="next"><i class="fas fa-forward"></i></button>
         <button id="mode" title="Mode de lecture"><i class="fas fa-music"></i></button>
-        <button id="favorite" title="Ajouter aux favoris"><i class="far fa-heart"></i></button>
         <div>
         <input type="range" id="progress" value="0">
         <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
@@ -210,56 +207,6 @@
     // Initialisation
     renderPlaylist();
     loadTrack(currentTrack);
-
-    // Gestion des favoris et historique
-    const favoriteBtn = document.getElementById('favorite');
-    
-    async function updateFavoriteButton() {
-      const track = playlist[currentTrack];
-      const songId = window.M3MusicDB.createSongId(track.title, track.artist);
-      const isFav = await window.M3MusicDB.isFavorite(songId);
-      favoriteBtn.innerHTML = isFav ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
-    }
-
-    favoriteBtn.addEventListener('click', async () => {
-      const track = playlist[currentTrack];
-      const songId = window.M3MusicDB.createSongId(track.title, track.artist);
-      const isFav = await window.M3MusicDB.isFavorite(songId);
-      
-      if (isFav) {
-        await window.M3MusicDB.removeFromFavorites(songId);
-      } else {
-        await window.M3MusicDB.addToFavorites({
-          id: songId,
-          title: track.title,
-          artist: track.artist,
-          src: track.src,
-          image: track.cover
-        });
-      }
-      updateFavoriteButton();
-    });
-
-    audio.addEventListener('play', async () => {
-      const track = playlist[currentTrack];
-      await window.M3MusicDB.addToHistory({
-        id: window.M3MusicDB.createSongId(track.title, track.artist),
-        title: track.title,
-        artist: track.artist,
-        src: track.src,
-        image: track.cover
-      });
-    });
-
-    const originalLoadTrack = loadTrack;
-    loadTrack = async function(index) {
-      originalLoadTrack(index);
-      await updateFavoriteButton();
-    };
-
-    window.M3MusicDB.initDB().then(() => {
-      updateFavoriteButton();
-    });
 
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesBtn = document.getElementById('accept-cookies');

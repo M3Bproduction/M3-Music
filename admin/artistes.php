@@ -368,6 +368,12 @@ if ($action === 'edit' && isset($_GET['id'])) {
                             <textarea id="description" name="description"><?php echo $artiste['description'] ?? ''; ?></textarea>
                         </div>
                         
+                        <div class="form-group">
+                            <label for="image">Image (URL ou chemin)</label>
+                            <input type="text" id="image" name="image" placeholder="Ex: images/artiste.jpg" value="<?php echo $artiste['image'] ?? ''; ?>">
+                            <small style="color: #666; font-size: 12px;">Chemin vers l'image de l'artiste (optionnel)</small>
+                        </div>
+                        
                         <div style="display: flex; gap: 10px;">
                             <button type="submit" class="btn"><?php echo $action === 'edit' ? 'Modifier' : 'Ajouter'; ?></button>
                             <a href="?" class="btn btn-secondary">Annuler</a>
